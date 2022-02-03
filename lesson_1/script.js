@@ -81,4 +81,3 @@ switch (true) {
    default:
       alert("Неверно!");
 }
- 
