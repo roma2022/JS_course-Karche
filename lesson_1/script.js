@@ -1,16 +1,12 @@
 'use strict';
 // этот код работает в современном режиме
-let message1 = confirm('Готов решить математическую задачу? :)');
-if (message1) {
-    alert("Круто! Давай перейдём к самой задаче!");
- } else {
-    alert("Не ленись! Возвращайся, когда будешь в настроении ;P");
+let message1;
 do {
-   let message1 = confirm('Готов решить математическую задачу? :)');
+    message1 = confirm('Готов решить математическую задачу? :)');
    if (message1 == true) {
       alert("Круто! Давай перейдём к самой задаче!"); break;
    } else {
-      alert("Не ленись! Возвращайся, когда будешь в настроении ;P");
+      alert("Не ленись! Возвращайся, когда будешь в настроении ;P"); 
    }
 } while (message1 !== true);
 
@@ -48,28 +44,41 @@ console.log(b);
 const y = +prompt(`Чему будет равен этот пример?
               ${x}`); // prompt возвращает строку, преобразуем к числу с помощью унарного +.;
 
-if (isNaN(y) == true) {
-   while ( isNaN( y ) == true ) {
+if (isNaN(y) ) {
+   while ( isNaN( y )  ) {
       const y = +prompt(`Чему будет равен этот пример?
               ${x}`);
-      if ( isNaN( y ) !== true ) break;
+      if ( isNaN( y )  ) break;
    }
 }
 
-if ( y < 0 && y < b ) {
-   alert( "Это чересчур мало..." );
-} else if ( y > 0 && y < b ) {
-   alert( "Это слишком мало..." );
-} else if ( y < 100 && y > b ) {
-   alert( "Это слишком много..." );
-} else if ( y > 100 && y > b ) {
-   alert( "Это чересчур много..." );
-} else if ( y == '' || y == null ) {
-   alert( "Пустая строка не является ответом!" );
-} else if ( y == b ) {
-   alert( "Верно!" );
-} else {
-   alert("Неверно!");
+switch (true) {
+   case b:
+      alert("Верно!");
+      break;
+   
+      case y == null:
+   case y == '':
+      alert("Пустая строка не является ответом!");
+      break;
+   case y < 0:
+   case y < b:
+      alert("Это чересчур мало...");
+      break;
+   case y > 0:
+   case y < b:
+      alert("Это слишком много...");
+      break;
+   case y < 100:
+   case y > b:
+      alert("Это слишком мало...");
+      break;
+   case y > 100:
+   case y > b:
+      alert("Это чересчур много...");
+      break;
+
+   default:
+      alert("Неверно!");
 }
- }//Без неё почему-то файл не проходит (выдаёт ошибку)
  
